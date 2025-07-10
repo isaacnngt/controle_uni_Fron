@@ -28,8 +28,29 @@ FROM nginx:alpine
 # Copiar arquivos buildados do React (pasta 'build')
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Copiar configuração customizada do Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+# Criar configuração nginx inline (sem arquivo externo)
+RUN echo 'events { worker_connections 1024; } \
+http { \
+    include /etc/nginx/mime.types; \
+    default_type application/octet-stream; \
+    sendfile on; \
+    keepalive_timeout 65; \
+    gzip on; \
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript; \
+    server { \
+        listen 80; \
+        server_name _; \
+        root /usr/share/nginx/html; \
+        index index.html; \
+        location / { \
+            try_files $uri $uri/ /index.html; \
+        } \
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ { \
+            expires 1y; \
+            add_header Cache-Control "public, immutable"; \
+        } \
+    } \
+}' > /etc/nginx/nginx.conf
 
 # Expor porta
 EXPOSE 80
