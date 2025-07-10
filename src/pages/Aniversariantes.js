@@ -82,17 +82,22 @@ const Aniversariantes = () => {
 
     const formatarData = (data) => {
         if (!data) return '-';
-        const dataObj = new Date(data);
+
+        // Corrigir problema de timezone
+        const dataObj = new Date(data + 'T00:00:00');
         return dataObj.toLocaleDateString('pt-BR', {
             day: '2-digit',
-            month: '2-digit'
+            month: '2-digit',
+            year: 'numeric'
         });
     };
-
     const calcularIdade = (dataNascimento) => {
         if (!dataNascimento) return '-';
+
+        // Criar data sem problema de timezone
         const hoje = new Date();
-        const nascimento = new Date(dataNascimento);
+        const nascimento = new Date(dataNascimento + 'T00:00:00');
+
         let idade = hoje.getFullYear() - nascimento.getFullYear();
         const mesAtual = hoje.getMonth();
         const mesNascimento = nascimento.getMonth();

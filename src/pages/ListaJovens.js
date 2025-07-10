@@ -59,7 +59,14 @@ const ListaJovens = () => {
 
     const formatarData = (data) => {
         if (!data) return '-';
-        return new Date(data).toLocaleDateString('pt-BR');
+
+        // Corrigir problema de timezone
+        const dataObj = new Date(data + 'T00:00:00');
+        return dataObj.toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
     };
 
     const handleOrdenacao = (campo) => {
