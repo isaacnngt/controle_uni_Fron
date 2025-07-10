@@ -1,53 +1,6 @@
 # Estágio de build
 FROM node:18-alpine AS build
 
-WORKDIR /app
-
-# Copiar package files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm ci
-
-# Copy source code
-COPY . .
-
-# Build variables
-ENV CI=false
-ENV GENERATE_SOURCEMAP=false
-ENV REACT_APP_API_URL=https://controleuniback-production.up.railway.app/api
-
-# Build the app
-RUN npm run build
-
-# Debug - ver que pastas existem
-RUN echo "=== Conteúdo de /app ===" && ls -la /app/
-RUN echo "=== Verificando build ===" && ls -la /app/build/ || echo "Pasta build não existe"
-
-# Production stage
-FROM nginx:alpine
-
-# Copy build files
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Verificar o que foi copiado
-RUN echo "=== Conteúdo do nginx ===" && ls -la /usr/share/nginx/html/
-
-# Simple nginx config
-RUN echo 'server { \
-    listen 80; \
-    location / { \
-        root /usr/share/nginx/html; \
-        index index.html index.htm; \
-        try_files $uri $uri/ /index.html; \
-    } \
-}' > /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]# Estágio de build
-FROM node:18-alpine AS build
-
 # Diretório de trabalho
 WORKDIR /app
 
@@ -69,19 +22,13 @@ ENV GENERATE_SOURCEMAP=false
 # Build da aplicação React (ignorando warnings do ESLint)
 RUN npm run build
 
-# Listar conteúdo para debug
-RUN ls -la /app/
-
 # Estágio de produção
 FROM nginx:alpine
 
-# Copiar arquivos buildados do React (verificar se pasta build existe)
-COPY --from=build /app/build /usr/share/nginx/html || COPY --from=build /app/dist /usr/share/nginx/html
+# Copiar arquivos buildados do React (pasta 'build')
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Verificar se os arquivos foram copiados
-RUN ls -la /usr/share/nginx/html/
-
-# Criar configuração nginx inline
+# Criar configuração nginx inline (sem arquivo externo)
 RUN echo 'events { worker_connections 1024; } \
 http { \
     include /etc/nginx/mime.types; \
@@ -107,6 +54,10 @@ http { \
 
 # Expor porta
 EXPOSE 80
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost/ || exit 1
 
 # Comando para iniciar
 CMD ["nginx", "-g", "daemon off;"]
