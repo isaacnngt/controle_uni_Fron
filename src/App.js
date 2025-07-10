@@ -12,6 +12,7 @@ import TamanhosCamisa from './pages/TamanhosCamisa';
 import ParametrosFinanceiros from './pages/ParametrosFinanceiros';
 import PrestacaoContas from './pages/PrestacaoContas';
 import EditarJovem from './pages/EditarJovem';
+import Aniversariantes from './pages/Aniversariantes'; // ← FALTAVA ESTE IMPORT
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/parametros" element={<ParametrosFinanceiros />} />
               <Route path="/prestacao-contas" element={<PrestacaoContas />} />
               <Route path="/editar/:id" element={<EditarJovem />} />
+              <Route path="/aniversariantes" element={<Aniversariantes />} /> {/* ← FALTAVA ESTA ROTA */}
             </Routes>
           </main>
         </div>

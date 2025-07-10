@@ -29,7 +29,7 @@ const MenuPrincipal = () => {
     return (
         <div className="menu-principal">
             <header className="hero">
-                <h1>📚 Sistema UNIJovem</h1>
+                <h1>📚 Sistema mocidade UNIJovem</h1>
                 <p>Gerenciamento de jovens da igreja</p>
             </header>
 
@@ -64,6 +64,12 @@ const MenuPrincipal = () => {
                     <div className="menu-icon">🔍</div>
                     <h3>Buscar Jovem</h3>
                     <p>Pesquisar jovem por nome</p>
+                </Link>
+
+                <Link to="/aniversariantes" className="menu-card">
+                    <div className="menu-icon">🎂</div>
+                    <h3>Aniversariantes</h3>
+                    <p>Lista de aniversariantes por mês</p>
                 </Link>
 
                 <Link to="/tamanhos-camisa" className="menu-card">

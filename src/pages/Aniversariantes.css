@@ -1,0 +1,339 @@
+/* Aniversariantes.css */
+
+.stats-section {
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-card.hoje {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.stat-card.total {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #333;
+}
+
+.stat-card.mes-popular {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #333;
+}
+
+.stat-card.proximos {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: #333;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+/* Aniversariantes de Hoje */
+.hoje-section {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 20%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.hoje-section h3 {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.hoje-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.hoje-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.hoje-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.hoje-info h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+}
+
+.hoje-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Controles */
+.controles-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filtros {
+    flex: 1;
+    min-width: 200px;
+}
+
+.acoes {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Meses */
+.meses-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mes-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.mes-card.mes-atual {
+    border-color: #10b981;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+}
+
+.mes-card.mes-selecionado {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.mes-header {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.mes-card.mes-atual .mes-header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.mes-header h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mes-count {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.mes-card.mes-atual .mes-count {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mes-vazio {
+    padding: 2rem;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.aniversariantes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.aniversariante-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+}
+
+.aniversariante-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aniversariante-nome {
+    margin: 0 0 0.5rem 0;
+    color: #1f2937;
+    font-size: 1.1rem;
+}
+
+.aniversariante-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.aniversariante-detalhes span {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.data-nascimento {
+    color: #ef4444 !important;
+}
+
+.idade-atual {
+    color: #3b82f6 !important;
+}
+
+.proxima-idade {
+    color: #10b981 !important;
+}
+
+.dias-para-aniversario {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Próximos Aniversariantes */
+.proximos-section {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.proximos-section h3 {
+    margin-bottom: 1rem;
+    color: #1e40af;
+}
+
+.proximos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.proximo-card {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.proximo-info h4 {
+    margin: 0 0 0.25rem 0;
+    color: #1e40af;
+}
+
+.proximo-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #1e40af;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .controles-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acoes {
+        justify-content: center;
+    }
+
+    .aniversariantes-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .hoje-grid,
+    .proximos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Utilitários */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+}
+
+.summary {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.summary p {
+    margin: 0.25rem 0;
+}

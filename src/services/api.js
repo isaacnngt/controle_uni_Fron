@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_BASE_URL = 'https://controleuniback-production.up.railway.app/api';
+//const API_BASE_URL = 'http://localhost:8080/api';
 
 const api = axios.create({
     baseURL: API_BASE_URL,
@@ -17,6 +18,12 @@ export const usuarioService = {
     atualizar: (id, usuario) => api.put(`/usuarios/${id}`, usuario),
     deletar: (id) => api.delete(`/usuarios/${id}`),
     contar: () => api.get('/usuarios/count'),
+
+    // NOVOS MÉTODOS - Aniversariantes
+    listarAniversariantesPorMes: () => api.get('/usuarios/aniversariantes'),
+    listarAniversariantesDoMes: (mes) => api.get(`/usuarios/aniversariantes/mes/${mes}`),
+    listarAniversariantesHoje: () => api.get('/usuarios/aniversariantes/hoje'),
+    listarProximosAniversariantes: (dias = 30) => api.get(`/usuarios/aniversariantes/proximos/${dias}`)
 };
 
 export const parametrosService = {
