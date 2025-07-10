@@ -1,0 +1,251 @@
+.card-subtitle {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.parametros-atuais {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.parametros-atuais h3 {
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.valor-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.valor-card:hover {
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.valor-card.mensalidade {
+    border-left: 4px solid #10b981;
+}
+
+.valor-card.camisa {
+    border-left: 4px solid #3b82f6;
+}
+
+.valor-icon {
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+.valor-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.valor-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.valor-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.ultima-atualizacao {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 1rem;
+}
+
+.ultima-atualizacao small {
+    color: #6b7280;
+    font-style: italic;
+}
+
+.parametros-form {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.parametros-form h3 {
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-prefix {
+    position: absolute;
+    left: 1rem;
+    color: #6b7280;
+    font-weight: 600;
+    z-index: 1;
+    background: white;
+    padding: 0 0.25rem;
+}
+
+.input-group .form-input {
+    padding-left: 3rem;
+}
+
+.form-help {
+    display: block;
+    margin-top: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+.info-section {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.info-section h3 {
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.info-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    border-left: 4px solid #e2e8f0;
+}
+
+.info-card.warning {
+    border-left-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.info-card.tip {
+    border-left-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.info-card.info {
+    border-left-color: #10b981;
+    background: #f0fdf4;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.info-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.info-content p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+}
+
+.info-card.warning .info-content h4 {
+    color: #92400e;
+}
+
+.info-card.tip .info-content h4 {
+    color: #1e40af;
+}
+
+.info-card.info .info-content h4 {
+    color: #065f46;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .valores-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .valor-card {
+        padding: 1rem;
+    }
+
+    .valor-amount {
+        font-size: 1.25rem;
+    }
+
+    .parametros-form,
+    .parametros-atuais,
+    .info-section {
+        padding: 1rem;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        padding: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .valor-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-icon {
+        align-self: center;
+    }
+}

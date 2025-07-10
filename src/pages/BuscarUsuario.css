@@ -1,0 +1,267 @@
+.search-form {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.search-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+.flex-grow {
+    grid-column: 1;
+}
+
+.search-btn {
+    height: 48px;
+    min-width: 120px;
+}
+
+.search-results {
+    margin-bottom: 2rem;
+}
+
+.search-results h3 {
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.usuarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.usuario-card {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.usuario-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.usuario-card.selected {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.usuario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.usuario-header h4 {
+    color: #1e3a8a;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-badge.com-divida {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-badge.sem-divida {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.usuario-info {
+    margin-bottom: 1rem;
+}
+
+.usuario-info p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.usuario-info strong {
+    color: #1f2937;
+}
+
+.usuario-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.usuario-detalhes {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e5e7eb;
+}
+
+.usuario-detalhes h3 {
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+}
+
+.detalhes-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.detalhes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.detalhes-header h4 {
+    color: #1e3a8a;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.usuario-id {
+    background: #e5e7eb;
+    color: #6b7280;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.detalhes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.detalhe-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.detalhe-item .label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.detalhe-item .value {
+    color: #1f2937;
+    font-weight: 500;
+    text-align: right;
+}
+
+.detalhes-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .search-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .flex-grow {
+        grid-column: 1;
+    }
+
+    .usuarios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detalhes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .usuario-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .usuario-actions {
+        flex-direction: column;
+    }
+
+    .usuario-actions .btn {
+        width: 100%;
+    }
+
+    .detalhes-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .detalhes-actions {
+        flex-direction: column;
+    }
+
+    .detalhes-actions .btn {
+        width: 100%;
+    }
+
+    .detalhe-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .detalhe-item .value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-btn {
+        min-width: 100px;
+        height: 40px;
+    }
+
+    .usuario-card {
+        padding: 1rem;
+    }
+
+    .detalhes-card {
+        padding: 1rem;
+    }
+}

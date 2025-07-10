@@ -1,0 +1,334 @@
+/* Seção de Estatísticas */
+.estatisticas-section {
+    background: #f0f9ff;
+    border: 1px solid #7dd3fc;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.estatisticas-section h3 {
+    color: #0c4a6e;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.estatisticas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+}
+
+.stat-card.nao-informado {
+    border-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.stat-tamanho {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+}
+
+.stat-quantidade {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #059669;
+    margin-bottom: 0.25rem;
+}
+
+.stat-percentual {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #92400e;
+    margin-top: 0.25rem;
+    font-weight: 600;
+}
+
+/* Controles */
+.controles-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.filtros {
+    flex: 1;
+}
+
+.acoes {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+/* Badge para tamanhos */
+.tamanho-badge {
+    padding: 0.375rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+    min-width: 60px;
+    display: inline-block;
+}
+
+.tamanho-badge.informado {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.tamanho-badge.nao-informado {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #f59e0b;
+}
+
+/* Botões específicos */
+.btn-success {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.btn-secondary {
+    background-color: #6b7280;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+    transform: translateY(-1px);
+}
+
+/* Tabela específica para tamanhos - apenas 3 colunas */
+.table th:nth-child(1) { min-width: 250px; } /* Nome - mais espaço */
+.table th:nth-child(2) { min-width: 150px; } /* Tamanho */
+.table th:nth-child(3) { min-width: 140px; } /* Sexo */
+
+/* Primeira coluna congelada */
+.table th:first-child,
+.table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 50;
+    background-color: white;
+    border-right: 2px solid #e5e7eb;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-header-sticky th:first-child {
+    z-index: 150;
+    background-color: #f8fafc !important;
+}
+
+/* Hover na primeira coluna */
+.table tbody tr:hover td:first-child {
+    background-color: #f0f9ff;
+}
+
+/* Tooltips */
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1f2937;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 200px;
+    max-width: 300px;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    animation: tooltipFadeIn 0.2s ease-out;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #1f2937;
+}
+
+.tooltip-header {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #374151;
+    color: #f3f4f6;
+}
+
+.tooltip-content {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.tooltip-nome {
+    padding: 0.125rem 0;
+    color: #d1d5db;
+    line-height: 1.3;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Melhorar hover nos cards para indicar interatividade */
+.stat-card.tooltip-container:hover {
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .controles-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .acoes {
+        justify-content: center;
+    }
+
+    .estatisticas-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .estatisticas-section,
+    .controles-section {
+        padding: 1rem;
+    }
+
+    .estatisticas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-tamanho {
+        font-size: 1.25rem;
+    }
+
+    .stat-quantidade {
+        font-size: 1.5rem;
+    }
+
+    .acoes {
+        flex-direction: column;
+    }
+
+    .btn-success,
+    .btn-secondary {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .table {
+        font-size: 0.875rem;
+        min-width: 500px; /* Reduzido já que temos menos colunas */
+    }
+
+    .tamanho-badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        min-width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .estatisticas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .controles-section {
+        padding: 0.75rem;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .tooltip {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+        max-width: none;
+        margin-top: 0.25rem;
+    }
+
+    .tooltip::before {
+        left: 20px;
+        transform: none;
+    }
+}

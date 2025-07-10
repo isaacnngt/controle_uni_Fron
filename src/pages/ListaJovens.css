@@ -1,0 +1,391 @@
+/* Outras colunas com larguras definidas para melhor controle */
+.table th:nth-child(2), .table td:nth-child(2) { min-width: 120px; } /* Sexo */
+.table th:nth-child(3), .table td:nth-child(3) { min-width: 150px; } /* Cargo Ministerial */
+.table th:nth-child(4), .table td:nth-child(4) { min-width: 150px; } /* Cargo UNIJovem */
+.table th:nth-child(5), .table td:nth-child(5) { min-width: 160px; } /* Situação Dívida */
+.table th:nth-child(6), .table td:nth-child(6) { min-width: 140px; } /* Data Nascimento */
+.table th:nth-child(7), .table td:nth-child(7) { min-width: 120px; } /* Ações *//* Primeira coluna congelada (Nome) */
+.table th:first-child,
+.table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 50;
+    background-color: white;
+    border-right: 2px solid #e5e7eb;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho da primeira coluna tem prioridade maior */
+.table-header-sticky th:first-child {
+    z-index: 150;
+    background-color: #f8fafc !important;
+    border-right: 2px solid #e5e7eb;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover na primeira coluna */
+.table tbody tr:hover td:first-child {
+    background-color: #f0f9ff;
+}/* Container principal com altura otimizada - APENAS para Lista de Jovens */
+.lista-jovens-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    height: calc(100vh - 80px); /* Ajustado para dar mais espaço */
+}
+
+.lista-jovens-container .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evita vazamentos de scroll */
+}
+
+/* Container padrão para outras páginas (como Prestação de Contas) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    min-height: calc(100vh - 100px);
+}
+
+.container .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}.header-content {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+.table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    flex: 1; /* Ocupa todo o espaço disponível */
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    position: relative;
+    /* Força o contexto de stacking para sticky funcionar */
+    isolation: isolate;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    min-width: 800px; /* Força scroll horizontal se necessário */
+}
+
+/* Cabeçalho fixo/congelado */
+.table-header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #f8fafc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.table-header-sticky th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    background-color: #f8fafc !important;
+    border-bottom: 2px solid #e5e7eb;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+}
+
+/* Cabeçalhos clicáveis para ordenação */
+.sortable-header {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+    position: relative;
+    /* Garante que o background seja mantido no sticky */
+    background-color: #f8fafc !important;
+}
+
+.sortable-header:hover {
+    background-color: #e2e8f0 !important;
+}
+
+.sortable-header:active {
+    background-color: #cbd5e1 !important;
+}
+
+/* Estilo para indicar que a coluna está sendo ordenada */
+.sortable-header[data-sorted="true"] {
+    background-color: #e0e7ff !important;
+    color: #1e40af;
+}
+
+.table tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.nome-cell {
+    font-weight: 600;
+    color: #1e3a8a;
+    min-width: 200px; /* Largura mínima para a coluna nome */
+    max-width: 250px; /* Largura máxima */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sexo-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.sexo-badge.m {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.sexo-badge.f {
+    background-color: #fce7f3;
+    color: #be185d;
+}
+
+.cargo-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.cargo-badge.sim {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.cargo-badge.nao {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.divida-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.divida-badge.com-divida {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.divida-badge.sem-divida {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-action {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    min-width: 36px;
+    height: 36px;
+}
+
+.btn-edit {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.btn-edit:hover {
+    background-color: #e5e7eb;
+}
+
+.btn-delete {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-delete:hover {
+    background-color: #fecaca;
+}
+
+.btn-prestacao {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.btn-prestacao:hover {
+    background-color: #bfdbfe;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.summary {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    text-align: center;
+    background-color: #f9fafb;
+    flex-shrink: 0;
+}
+
+/* Melhorias para scroll */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Indicador visual para colunas ordenáveis */
+.sortable-header::after {
+    content: '';
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+}
+
+.sortable-header:hover::after {
+    opacity: 0.7;
+}
+
+/* Responsividade com primeira coluna congelada */
+@media (max-width: 768px) {
+    .container {
+        height: calc(100vh - 60px);
+        padding: 0.5rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .table {
+        font-size: 0.875rem;
+        min-width: 600px; /* Reduzido para mobile */
+    }
+
+    .table-header-sticky th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+        background-color: #f8fafc !important;
+    }
+
+    .table-header-sticky th:first-child {
+        background-color: #f8fafc !important;
+        padding: 0.75rem 1rem; /* Mais padding na primeira coluna */
+    }
+
+    .table tbody td {
+        padding: 0.5rem;
+    }
+
+    .table tbody td:first-child {
+        padding: 0.5rem 1rem; /* Mais padding na primeira coluna */
+    }
+
+    .nome-cell {
+        min-width: 150px;
+        max-width: 180px;
+        font-size: 0.875rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .btn-action {
+        min-width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+    }
+
+    .sexo-badge,
+    .cargo-badge,
+    .divida-badge {
+        font-size: 0.75rem;
+        padding: 0.125rem 0.375rem;
+    }
+
+    /* Larguras reduzidas para mobile */
+    .table th:nth-child(2), .table td:nth-child(2) { min-width: 100px; }
+    .table th:nth-child(3), .table td:nth-child(3) { min-width: 120px; }
+    .table th:nth-child(4), .table td:nth-child(4) { min-width: 120px; }
+    .table th:nth-child(5), .table td:nth-child(5) { min-width: 130px; }
+    .table th:nth-child(6), .table td:nth-child(6) { min-width: 110px; }
+    .table th:nth-child(7), .table td:nth-child(7) { min-width: 100px; }
+}
