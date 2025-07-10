@@ -28,7 +28,7 @@ FROM nginx:alpine
 # Copiar arquivos buildados do React (pasta 'build')
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Configuração customizada do Nginx
+# Copiar configuração customizada do Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expor porta
