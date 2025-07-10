@@ -27,8 +27,8 @@ RUN echo "=== Verificando build ===" && ls -la /app/build/ || echo "Pasta build 
 # Production stage
 FROM nginx:alpine
 
-# Copy build files (usar * para capturar qualquer estrutura)
-COPY --from=build /app/build/ /usr/share/nginx/html/
+# Copy build files
+COPY --from=build /app/build /usr/share/nginx/html
 
 # Verificar o que foi copiado
 RUN echo "=== Conteúdo do nginx ===" && ls -la /usr/share/nginx/html/
