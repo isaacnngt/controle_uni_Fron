@@ -46,6 +46,7 @@ export const prestacaoContasService = {
     },
     listarAnosVigentes: () => api.get('/prestacao-contas/anos'),
     listarComDividas: () => api.get('/prestacao-contas/com-dividas'),
+    buscarResumoGeral: (ano) => api.get(`/prestacao-contas/resumo-geral/${ano}`),
 };
 
 export default api;

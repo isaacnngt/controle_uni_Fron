@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { prestacaoContasService, usuarioService, parametrosService } from '../services/api';
+import { Link } from 'react-router-dom';
 import './PrestacaoContas.css';
 
 const PrestacaoContas = () => {
@@ -281,19 +282,56 @@ const PrestacaoContas = () => {
 
     return (
         <div className="container">
-            <div className="card">
-                <div className="card-header">
-                    <h2 className="card-title">💰 Registrar Pagamentos</h2>
-                    <p className="card-subtitle">
-                        Cadastre e gerencie os pagamentos de mensalidade e camisa dos jovens
-                    </p>
-                </div>
+        <div className="card">
+            <div className="card-header">
+                <h2 className="card-title">💰 Registrar Pagamentos</h2>
+                <p className="card-subtitle">
+                    Cadastre e gerencie os pagamentos de mensalidade e camisa dos jovens
+                </p>
+            </div>
 
-                {message.text && (
-                    <div className={`alert alert-${message.type}`}>
-                        {message.text}
-                    </div>
-                )}
+            {/* ADICIONAR ESTE BLOCO AQUI 👇 */}
+            <div className="botao-geral-section" style={{
+                padding: '1rem', 
+                background: '#f0f8ff', 
+                borderRadius: '8px', 
+                marginBottom: '1.5rem',
+                textAlign: 'center',
+                border: '1px solid #e3f2fd'
+            }}>
+                <Link 
+                    to={`/prestacao-geral?ano=${anoVigente}`} 
+                    className="btn btn-primary"
+                    style={{
+                        display: 'inline-block',
+                        padding: '0.75rem 1.5rem',
+                        background: '#28a745',
+                        color: 'white',
+                        textDecoration: 'none',
+                        borderRadius: '8px',
+                        fontWeight: '600',
+                        marginBottom: '0.5rem',
+                        fontSize: '1rem'
+                    }}
+                >
+                    📋 Visualização Geral - Todos os Usuários
+                </Link>
+                <p style={{ 
+                    margin: '0.5rem 0 0 0', 
+                    color: '#666', 
+                    fontSize: '0.9rem',
+                    fontStyle: 'italic'
+                }}>
+                    Visualize e edite os pagamentos de todos os usuários em uma única tela
+                </p>
+            </div>
+            {/* FIM DO BLOCO ADICIONADO 👆 */}
+
+            {message.text && (
+                <div className={`alert alert-${message.type}`}>
+                    {message.text}
+                </div>
+            )}
 
                 {/* Seleção de Usuário e Ano */}
                 <div className="selecao-section">
