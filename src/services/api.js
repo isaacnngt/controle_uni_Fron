@@ -55,14 +55,4 @@ export const caixaGeralService = {
     atualizarSaldo: (novoSaldo) => api.put(`/caixa-geral/atualizar-saldo?novoSaldo=${novoSaldo}`),
 };
 
-export const authService = {
-    login: (email, senha) => api.post('/auth/login', { email, senha }),
-    logout: () => api.post('/auth/logout'),
-    verificarEmail: (email) => api.get(`/auth/verificar-email/${email}`),
-    criarUsuario: (usuarioId, email, senha, tipoUsuario = 'USUARIO') => 
-        api.post(`/auth/criar-usuario?usuarioId=${usuarioId}&email=${email}&senha=${senha}&tipoUsuario=${tipoUsuario}`),
-    alterarSenha: (usuarioLoginId, senhaAtual, novaSenha) => 
-        api.put(`/auth/alterar-senha?usuarioLoginId=${usuarioLoginId}&senhaAtual=${senhaAtual}&novaSenha=${novaSenha}`)
-};
-
 export default api;
