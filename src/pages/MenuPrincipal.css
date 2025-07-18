@@ -60,19 +60,20 @@
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* REDUZIDO de 300px para 220px */
+    gap: 1.5rem; /* REDUZIDO de 2rem para 1.5rem */
 }
 
 .menu-card {
     background: white;
     border-radius: 8px;
-    padding: 2rem;
+    padding: 1.5rem; /* REDUZIDO de 2rem para 1.5rem */
     text-decoration: none;
     color: inherit;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    min-height: 140px; /* ADICIONADO para manter altura consistente */
 }
 
 .menu-card:hover {
@@ -82,20 +83,21 @@
 }
 
 .menu-icon {
-    font-size: 3rem;
+    font-size: 2.5rem; /* REDUZIDO de 3rem para 2.5rem */
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem; /* REDUZIDO de 1rem para 0.75rem */
 }
 
 .menu-card h3 {
     color: #1e3a8a;
     margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem; /* REDUZIDO de 1.3rem para 1.1rem */
 }
 
 .menu-card p {
     color: #6b7280;
-    line-height: 1.5;
+    line-height: 1.4; /* REDUZIDO de 1.5 para 1.4 */
+    font-size: 0.9rem; /* ADICIONADO para texto menor */
 }
 
 @media (max-width: 768px) {
@@ -109,5 +111,15 @@
 
     .menu-grid {
         grid-template-columns: 1fr;
+        gap: 1rem; /* REDUZIDO gap no mobile */
+    }
+    
+    .menu-card {
+        padding: 1.25rem; /* MENOR no mobile */
+        min-height: 120px;
+    }
+    
+    .menu-icon {
+        font-size: 2rem; /* MENOR no mobile */
     }
 }

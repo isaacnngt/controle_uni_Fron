@@ -44,20 +44,20 @@
 .stat-tamanho {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #1e3a8a;
+    color: #10255f;
     margin-bottom: 0.5rem;
 }
 
 .stat-quantidade {
     font-size: 2rem;
     font-weight: bold;
-    color: #059669;
+    color: #cedbd7;
     margin-bottom: 0.25rem;
 }
 
 .stat-percentual {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: #5c0f4f;
     font-weight: 500;
 }
 
