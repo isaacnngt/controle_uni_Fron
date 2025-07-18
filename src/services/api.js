@@ -49,4 +49,10 @@ export const prestacaoContasService = {
     buscarResumoGeral: (ano) => api.get(`/prestacao-contas/resumo-geral/${ano}`),
 };
 
+export const caixaGeralService = {
+    buscarRelatorio: (ano) => api.get(`/caixa-geral/relatorio/${ano}`),
+    buscarSaldoAtual: () => api.get('/caixa-geral/saldo-atual'),
+    atualizarSaldo: (novoSaldo) => api.put(`/caixa-geral/atualizar-saldo?novoSaldo=${novoSaldo}`),
+};
+
 export default api;

@@ -61,6 +61,14 @@ const Navbar = () => {
                     >
                         📊 Prestação
                     </Link>
+
+                    {/* NOVO ITEM ADICIONADO */}
+                    <Link
+                        to="/caixa-geral"
+                        className={`navbar-item ${location.pathname === '/caixa-geral' ? 'active' : ''}`}
+                    >
+                        💰 Caixa
+                    </Link>
                 </div>
             </div>
         </nav>

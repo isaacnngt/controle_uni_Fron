@@ -89,6 +89,13 @@ const MenuPrincipal = () => {
                     <h3>Prestação de Contas</h3>
                     <p>Visualizar relatórios financeiros</p>
                 </Link>
+
+                {/* NOVO CARD ADICIONADO */}
+                <Link to="/caixa-geral" className="menu-card">
+                    <div className="menu-icon">💰</div>
+                    <h3>Caixa Geral</h3>
+                    <p>Controle financeiro e saldo atual</p>
+                </Link>
             </div>
         </div>
     );
